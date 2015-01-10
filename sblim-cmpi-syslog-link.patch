@@ -1,0 +1,16 @@
+--- sblim-cmpi-syslog-0.9.0/syslog-log/Makefile.am.orig	2006-02-20 21:45:34.000000000 +0100
++++ sblim-cmpi-syslog-0.9.0/syslog-log/Makefile.am	2015-01-10 19:38:31.502483323 +0100
+@@ -27,11 +27,12 @@
+ libSyslog_RecordInLog_la_LIBADD = -lSyslog_LogUtils -lsysloglogutil -lsyslogtimeparse
+ libSyslog_RecordInLog_la_LDFLAGS = -avoid-version
+ 
+-lib_LTLIBRARIES = libSyslog_LogUtils.la libsysloglogutil.la libsyslogtimeparse.la
++lib_LTLIBRARIES = libSyslog_LogUtils.la libsyslogtimeparse.la libsysloglogutil.la
+ libSyslog_LogUtils_la_SOURCES= Syslog_LogUtils.c 
+ libSyslog_LogUtils_la_LDFLAGS = -Wc,-nostartfiles
+ libsysloglogutil_la_SOURCES = util/sysloglogutil.c
+ libsysloglogutil_la_LDFLAGS = -Wc,-nostartfiles
++libsysloglogutil_la_LIBADD = libsyslogtimeparse.la
+ libsyslogtimeparse_la_SOURCES = util/syslogtimeparse.c
+ libsyslogtimeparse_la_LDFLAGS = -Wc,-nostartfiles
+ 
